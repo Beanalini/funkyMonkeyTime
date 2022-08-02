@@ -24,13 +24,14 @@ function renderDiaryEntries() {
   for( i = 0; i < storedDiaryEvents.length; i++){
     console.log(storedDiaryEvents[i].text);
     console.log(i);
+      //display all stored events for current day
       var hour = storedDiaryEvents[i].hour;
       if(storedDiaryEvents[i].date == moment().format('L')) {
         $('#' + hour).children('.description').val(storedDiaryEvents[i].text);
         console.log("#" + hour);
       } 
       else if(storedDiaryEvents[i].date != moment().format('L')) {
-
+        //remove entries older than current date and update local storage
           console.log(storedDiaryEvents.length);
           storedDiaryEvents.splice(i, 1);
           console.log(storedDiaryEvents.length);
@@ -48,12 +49,11 @@ function storeDiaryText(text, hour) {
     localStorage.setItem('diaryEvents', '[]');
   }
   console.log("inside storeDiaryText");
-  //get the date and month from moments
-
+  
   //get the stored arrary of objects
   var storedDiaryEvents = JSON.parse(localStorage.getItem('diaryEvents'));
 
-  //check to see if an entry already exists in storage. I use the find.index method here since only one object entry exits for each hour in the schedular.
+  //check to see if an entry already exists in storage. I use the find.index method here since only one object entry exits for each hour in the schedular. This helped reduce previously used for loop with if else statements to a few lines of code - result:-)!
   let updateIndex = storedDiaryEvents.findIndex(entry => entry.hour === hour);
   //-1 indicates no matching entry - in this case a new object is created for the hour corresponding to the saveBtn event.  
   if(updateIndex == -1) {
@@ -150,7 +150,7 @@ updateTimeBlocks();
 //Call renderDiaryEntries() to retrieve and display planner entries saved in local storage
 renderDiaryEntries();
 
-
+/**********Put  the setinterval functions into parent function****/
 //update Jumbotron Clock every 10 seconds
 setInterval(setJumboClock, 10000);
 
