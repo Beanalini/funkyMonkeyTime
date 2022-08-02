@@ -17,7 +17,7 @@ This challenge required the app to run in the browswer and include dynamically u
 
 The following animation was provided as an example to show the  appearance and functionality needed to meet the criteria of this challenge.
 
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/images/05-third-party-apis-homework-demo.gif)
+![A user clicks on slots on the color-coded calendar and edits the events.](./assets/images/05-third-party-apis-homework-demo.gif)
 
 
 
@@ -68,13 +68,13 @@ THEN the saved events persist
 
 Code Quiz Landing Page
 
-![quiz app start page](assets/images/planner-page.PNG)
+![quiz app start page](tree/main/assets/images/planner-page.PNG)
 
 
 Planner page showing saved diary entries.
 
 
-![question page](assets/images/planner-notification.PNG)
+![question page](tree/main/assets/images/planner-notification.PNG)
 
 Planner page showing a notification after user saves a diary entry.  The save message persits for 2 seconds.
 
