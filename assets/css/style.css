@@ -90,3 +90,25 @@ background: radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(29,251,253,1) 64
   background-color: #08f21b;
   
 }
+
+.flex-container {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.save-style {
+display: none;
+border: 5px solid black;
+padding:10px;
+margin-top: 30px;
+width:40%;
+border-radius: 15px;
+text-align: center;
+background-color:rgb(85, 18, 129);
+color: white; 
+
+}
+.display {
+display: block;
+
+}
