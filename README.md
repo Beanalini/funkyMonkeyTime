@@ -68,13 +68,13 @@ THEN the saved events persist
 
 Code Quiz Landing Page
 
-![quiz app start page](tree/main/assets/images/planner-page.PNG)
+![work day schedular app](./assets/images/planner-page.PNG)
 
 
 Planner page showing saved diary entries.
 
 
-![question page](tree/main/assets/images/planner-notification.PNG)
+![work day schedular app with save notification](./assets/images/planner-notification.PNG)
 
 Planner page showing a notification after user saves a diary entry.  The save message persits for 2 seconds.
 
