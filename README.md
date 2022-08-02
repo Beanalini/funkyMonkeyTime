@@ -68,7 +68,7 @@ THEN the saved events persist
 
 Code Quiz Landing Page
 
-![work day schedular app](./assets/images/planner-page.PNG)
+![work day schedular app](./assets/images/05-third-party-apis-homework-demo.gif)
 
 
 Planner page showing saved diary entries.
