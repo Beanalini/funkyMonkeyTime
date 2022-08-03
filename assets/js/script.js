@@ -28,11 +28,10 @@ function renderDiaryEntries() {
       var hour = storedDiaryEvents[i].hour;
       if(storedDiaryEvents[i].date == moment().format('L')) {
         $('#' + hour).children('.description').val(storedDiaryEvents[i].text);
-        console.log("#" + hour);
+        //console.log("#" + hour);
       } 
       else if(storedDiaryEvents[i].date != moment().format('L')) {
         //remove entries older than current date and update local storage
-          console.log(storedDiaryEvents.length);
           storedDiaryEvents.splice(i, 1);
           console.log(storedDiaryEvents.length);
           localStorage.setItem("diaryEvents", JSON.stringify(storedDiaryEvents));
@@ -109,7 +108,6 @@ function setJumboClock() {
   }
 
 
-
   function updateTimeBlocks() {
     //select all time blocks
     let timeBlockEl = $(".time-block");
@@ -136,9 +134,9 @@ function setJumboClock() {
         element.removeClass("past")
         
       }    
-      console.log(element.attr("data-id") + ", " +currentHour + ", " + moment().format('LT'));
+      //console.log(element.attr("data-id") + ", " +currentHour + ", " + moment().format('LT'));
     }
-    console.log("updating timeBlocks" +", "+ moment().format('LT'));
+    //console.log("updating timeBlocks" +", "+ moment().format('LT'));
     
   } 
   

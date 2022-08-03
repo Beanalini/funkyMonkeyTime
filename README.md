@@ -128,7 +128,7 @@ In order to ensure that the colour of the time blocks changes according to the c
 
 The Screen shot below displays the Work Day Shedular landing page with saved diary entries.
 
-![work day schedular app](./assets/images/planner-page.PNG)
+![work day schedular app](./assets/images/planner-page.png)
 
 
 The screen shot below shows an additional entry made at 6pm and the message which is dipayed when the user clicks on the save button. The save message persits for 2 seconds.
