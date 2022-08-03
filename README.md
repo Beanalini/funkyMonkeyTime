@@ -66,18 +66,19 @@ THEN the saved events persist
 ##  Work Day Schedular Screen Shots
 ---
 
-Code Quiz Landing Page
+The Screen shot below displays the Work Day Shedular landing page with saved diary entries.
 
-![work day schedular app](./assets/images/planner_page.png)
+![work day schedular app](./assets/images/planner-page.PNG)
 
 
-Planner page showing saved diary entries.
+The screen shot below shows an additional entry made at 6pm and the message which is dipayed when the user clicks on the save button. The save message persits for 2 seconds.
 
 
 ![work day schedular app with save notification](./assets/images/planner-notification.png)
 
-Planner page showing a notification after user saves a diary entry.  The save message persits for 2 seconds.
+The screen shot below shows the work day schedular landing page presented to the user when it is accessed before 9am  - all the previous days entries saved to local storage are deleted, and the user is able to add new entries.   
 
+![work day schedular app with save notification](./assets/images/schedular_next_day.PNG)
 
 
 
