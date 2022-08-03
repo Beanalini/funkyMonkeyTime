@@ -4,12 +4,12 @@
 //TO DO: change middle column from a div to a textarea DONE ✔
 //TO DO: add an event listner to the save button  ✔
 //TO DO: store the item to local storage ✔
-//TO Do: turn the floppy disk green for save (nice to have)
+//TO Do: turn the floppy disk green for save (nice to have)❌
 // display a notification to say that data has been stored ✔
 //TO DO: store the item to local storage ✔
 //TO DO: display the task in the text area ✔
-//TO DO: add a strike through to the text items (nice to have)
-//To Do: change the size of the floppy disk icon  (nice to have)
+//TO DO: add a strike through to the text items (nice to have)❌
+//To Do: change the size of the floppy disk icon  (nice to have)❌
 //To Do: add function to periodically update the timeBlocks ✔
 //To Do: Change the timeBlocks font type and size ✔
 
@@ -104,7 +104,8 @@ $('.saveBtn').on('click', function() {
 /*This function updates the date and time displayed in the jumbotron */ 
 function setJumboClock() {
   $('#currentDay').text(moment().format('LLLL'));
-  console.log("updating clock");
+    console.log("updating clock");
+    
   }
 
 
@@ -150,7 +151,7 @@ updateTimeBlocks();
 //Call renderDiaryEntries() to retrieve and display planner entries saved in local storage
 renderDiaryEntries();
 
-/**********Put  the setinterval functions into parent function****/
+
 //update Jumbotron Clock every 10 seconds
 setInterval(setJumboClock, 10000);
 
