@@ -131,12 +131,12 @@ The Screen shot below displays the Work Day Shedular landing page with saved dia
 ![work day schedular app](./assets/images/planner-page.png)
 
 
-The screen shot below shows an additional entry made at 6pm and the message which is dipayed when the user clicks on the save button. The save message persits for 2 seconds.
+The screen shot below shows an additional entry made at 6pm and the confirmation message which is dipayed when the user clicks on the save button. The save message persits for 2 seconds.
 
 
 ![work day schedular app with save notification](./assets/images/planner-notification.png)
 
-The screen shot below shows the work day schedular landing page presented to the user when it is accessed before 9am  - all the previous days entries saved to local storage are deleted, and the user is able to add new entries.   
+The screen shot below shows the work day schedular landing page presented to the user when it is accessed before 9am  - all the previous days entries saved to local storage are deleted, and the user is able to add new entries. All the time blocks are green since indicating the time blocks are in the future compared to the curent time - see current time on the Jumbotrom header.
 
 ![work day schedular app with save notification](./assets/images/schedular_next_day.PNG)
 
