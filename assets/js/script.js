@@ -50,7 +50,7 @@ function storeDiaryText(text, hour) {
   }
   console.log("inside storeDiaryText");
   
-  //get the stored arrary of objects
+  //get the stored array of objects
   var storedDiaryEvents = JSON.parse(localStorage.getItem('diaryEvents'));
 
   //check to see if an entry already exists in storage. I use the find.index method here since only one object entry exits for each hour in the schedular. This helped reduce previously used for loop with if else statements to a few lines of code - result:-)!
@@ -86,7 +86,7 @@ function storeDiaryText(text, hour) {
   renderDiaryEntries();
 }
 
-/*This event occurs for any one of the hour block s when the user slects the save button. */
+/*This event occurs for any one of the hour blocks when the user selects the save button. */
 $('.saveBtn').on('click', function() {
 
   /*select the previous element to the event button (which is the text area)  and assign the text area string to textEl.*/

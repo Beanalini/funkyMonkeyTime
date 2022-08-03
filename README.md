@@ -55,12 +55,69 @@ THEN the saved events persist
 ## Approach 
 ---
 
+### Saving user entered diary events to local storage
+
+#### Traversing the DOM to select the time block hour and text linked to the save button event:
+
+All time block save buttons share the same event handler; when a user clicks the save button we need to be able to select the text area element in the time block corresponding to save button clicked by the user and determine which hour time block the save event occurred for – HTML code snippet below shows the HTML elements used to construct each time block.
+
+```html
+<div class="row time-block" id="9" data-id="9">
+        <div class="col-sm-1 hour" >
+          9am
+        </div>
+        <textarea class="col-sm-10 description"></textarea>
+        <button class="button col-sm-1 saveBtn"><i class="fas fa-save"></i></button>                 
+      </div>
+```
+
+
+In order to select the user text corresponding to the time block where, the save button event occurred, the DOM needs to be traversed backwards from the button upwards in order to reach the `<textarea>` element. I used the JQuery click method and the `$(this)` selector to reference the button and chained it with the JQuery prev() and val() methods to assign the contents of `<textarea>` to a let variable.
+
+The hour now needs to be linked with the text – I used data attributes in the time block container div and set their value to a number that represents the hour and used `$(this)` chained with the `parent()` and `attr()` methods to select the value of the data attribute (data-id). The data-id  and text variables are then passed to the `storeDiaryText()` function, which stores the data associated with the time block to local storage.
+Storing time block text to local storage
+
+In addition to meeting the user requirement of storing time block events to local storage, I also implemented additional functionality to remove items from local storage if older than a day, since the schedular is for an individual day only.
+
+The information corresponding to each time block is stored in local storage in an array of objects in JSON format. Prior to storing information in local storage, a conditional check is made to determine if an array already exists in local storage. If not, an empty array is added to local storage. On the condition that an array exists in local storage, the local storage array is parsed using the `JSON.parse()` method to convert it back to JS notation and then stored  in a local variable called `storedDiaryEvents`.  
+
+ The next step is to search storedDiaryEvents to determine if a corresponding entry exists to the hour block for which the ‘save’ event occurred.  Initially I used a for loop and a number of conditional statements to implement this functionality, however, after researching JQuery methods I found an alternative solution – the `findIndex()` method which drastically reduced the lines of code.   The `findIndex()` jQuery method searches through an array and returns the index of the first matching entry, if no entry is found -1 is returned.  This method is suitable for my implementation, since I ensure that only one entry for each time block is maintained in the stored array. The following functionality is then carried out:
+
+- If an entry is found, this means the user has edited a diary event that has already been saved for the day, and in this case, the corresponding object ‘text’ property is updated, the array is converted to JSON format using the `JSONstringfy()` method and saved to local storage.
+- Else if no entry exists in the array a new object is created which is then added to the array. The object properties are:
+  - hour property holds a number which corresponds to the time block hour
+  - text property holds the text entered by the user
+  - date property holds the date when the object was created  
+- A message is displayed to the user for two seconds by adding a class to the message div which then display the message for 2 seconds, after which the display class is removed from the message element. 
+- The local copy of the stored array is converted back to JSON format using `JSON.stringfy()` and then saved to local storage.
+- Finally, the `renderDiaryEntries()` function is called to render the text to the screen.
+
+### Displaying user entered text.
+
+The `renderDiaryEntries()` function displays the text entered and saved by the user, the stored array is retrieved from local storage, converted from JSON format using `JSONparse()` ,stored in a local variable and then using a for loop the following functionality is carried out based on conditional checks:
+
+- If the date of an array object is equal to the current date then the text entry can be displayed to the screen – the hour entry is concatenated with the id selector in the time block div and using the JQuery id selector and chaining element selectors, the text area is selected and the stored text is assigned to the text area which is displayed to the screen.  
+- Else If the object in the array is older than the current date it is not displayed, instead the entry is deleted since it is out-of-date. 
+
+### Time Block Status
+
+Each time block is colour coded grey, red and green to indicate whether it is in the past, present or future respectively, in relation to current time.  The Moments library is used for current time.  In order to update the colour of the time blocks according to the current time, a for loop is used to loop through each of the time block div container elements and depending on conditional checks, the following functionality is carried out for iteration of the for loop:
+- If the data-id value in the parent container is less than the current hour this means the time block is in the past, assign the past class to the parent element – this will turn the block grey.  Remove the other classes from the parent element
+- If the data-id value in the parent container equal to the current hour this means the time block is current, assign the present class to the parent element – this will turn the block red.  Remove the other classes from the parent element.
+
+In order to ensure that the colour of the time blocks changes according to the current hour, the `setInterval()` function is used to call the `updateTImeBlocks()` function every 30 seconds. 
+
+
 
 
  
 ## Usage
 ---
 - Open the <a href="https://beanalini.github.io/funkyMonkeyTime/">Work Day Schedular App.</a>
+- Enter your diary events into the time block and save them by clicking on the floppy disk icon on the lefthandside of the time block.
+- a message will be displayed for two seconds to indicate that your event has been saved.  If  the work Day schedular browser page is closed, the events will reload next time you enter the app on the same day.
+- Time Blocks are colour coded grey, red, and green corresponding to whether it is in the past, present or furture in relation to the current time.
+- The event schedular entries will be stored for the current day only, allowing new diary events to be entered into the schedular the following day.   
 
 
 ##  Work Day Schedular Screen Shots
